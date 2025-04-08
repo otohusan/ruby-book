@@ -10,7 +10,7 @@ def fizz_buzz(n)
   end
 end
 
-puts fizz_buzz(1) 
+puts   fizz_buzz(1) 
 puts fizz_buzz(2) 
 puts fizz_buzz(3)
 puts fizz_buzz(4)
