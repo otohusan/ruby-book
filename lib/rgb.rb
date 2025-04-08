@@ -21,3 +21,7 @@ puts chars.sum('<') { |x| x.upcase }
 # 範囲が最後の値を含む場合と、含まない場合
 puts((1..5).sum { |x| x })
 puts((1...5).sum { |x| x })
+
+def to_hex(r, g, b)
+  '#00000'
+end
