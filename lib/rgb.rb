@@ -17,3 +17,7 @@ puts chars.join
 puts chars.join('-')
 # 文字列に変換(先頭に文字追加や文字を加工する場合)
 puts chars.sum('<') { |x| x.upcase }
+
+# 範囲が最後の値を含む場合と、含まない場合
+puts((1..5).sum { |x| x })
+puts((1...5).sum { |x| x })
