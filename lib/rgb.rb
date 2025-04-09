@@ -26,6 +26,10 @@ puts((1...5).sum { |x| x })
 e, *f = [1, 2, 3, 4, 5]
 puts "e: #{e}, f: #{f}"
 
+# Array.new()に初期値とブロックを与える例
+array = Array.new(10) { |i| i % 3 }
+puts array
+
 def to_hex(r, g, b)
   [r, g, b].sum('#') do |color|
     color.to_s(16).rjust(2, '0')
