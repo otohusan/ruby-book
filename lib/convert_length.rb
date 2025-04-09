@@ -30,6 +30,7 @@ end
 # 使用例、デフォルト値があるから、引数を省略もできる
 buy_burger('ハンバーガー', drink: true, potato: true)
 
+UNITS = { 'm' => 1.0, 'ft' => 3.28, 'in' => 39.37 }.freeze
 def convert_length(length, from_unit, to_unit)
-  39.37
+  (length / UNITS[from_unit] * UNITS[to_unit]).round(2)
 end
