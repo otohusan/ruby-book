@@ -31,6 +31,6 @@ end
 buy_burger('ハンバーガー', drink: true, potato: true)
 
 UNITS = { m: 1.0, ft: 3.28, in: 39.37 }.freeze
-def convert_length(length, from_unit, to_unit)
-  (length / UNITS[from_unit] * UNITS[to_unit]).round(2)
+def convert_length(length, from:, to:)
+  (length / UNITS[from] * UNITS[to]).round(2)
 end
