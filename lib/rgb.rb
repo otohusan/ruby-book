@@ -23,8 +23,7 @@ puts((1..5).sum { |x| x })
 puts((1...5).sum { |x| x })
 
 def to_hex(r, g, b)
-  '#' +
-    r.to_s(16).rjust(2, '0') +
-    g.to_s(16).rjust(2, '0') +
-    b.to_s(16).rjust(2, '0')
+  [r, g, b].sum('#') do |color|
+    color.to_s(16).rjust(2, '0')
+  end
 end
