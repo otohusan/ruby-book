@@ -40,5 +40,5 @@ if /(?<first>\d+)-(?<second>\d+)/ =~ '123-456と124-567'
 end
 
 def convert_hash_syntax(old_hash)
-  old_hash
+  old_hash.gsub(/:(\w+) * => */, '\1: ')
 end
