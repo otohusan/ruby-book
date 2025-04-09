@@ -22,6 +22,10 @@ puts chars.sum('<') { |x| x.upcase }
 puts((1..5).sum { |x| x })
 puts((1...5).sum { |x| x })
 
+# *を使うと、残りの要素を配列として受け取れる
+e, *f = [1, 2, 3, 4, 5]
+puts "e: #{e}, f: #{f}"
+
 def to_hex(r, g, b)
   [r, g, b].sum('#') do |color|
     color.to_s(16).rjust(2, '0')
