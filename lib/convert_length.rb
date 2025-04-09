@@ -29,3 +29,7 @@ def buy_burger(menu, drink: false, potato: false)
 end
 # 使用例、デフォルト値があるから、引数を省略もできる
 buy_burger('ハンバーガー', drink: true, potato: true)
+
+def convert_length(length, from_unit, to_unit)
+  39.37
+end
