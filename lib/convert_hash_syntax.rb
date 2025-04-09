@@ -38,3 +38,7 @@ if /(?<first>\d+)-(?<second>\d+)/ =~ '123-456と124-567'
   puts "first: #{first}"
   puts "second: #{second}"
 end
+
+def convert_hash_syntax(old_hash)
+  old_hash
+end
