@@ -16,3 +16,16 @@ a.delete('uk')
 # 同じ名前のシンボルは常に同じオブジェクト, シンボルは不変であるため、文字列のように変更（破壊的操作）はできない, 中身は整数だから軽量で高速
 puts :apple.class
 puts 'apple'.class
+
+# シンボルをハッシュのキーに使う
+b = { japan: 'yen', us: 'dollar', uk: 'pound' }
+puts b
+
+# キーワード引数の例
+def buy_burger(menu, drink: false, potato: false)
+  puts "メニュー: #{menu}"
+  puts "ドリンク: #{drink}"
+  puts "ポテト: #{potato}"
+end
+# 使用例、デフォルト値があるから、引数を省略もできる
+buy_burger('ハンバーガー', drink: true, potato: true)
