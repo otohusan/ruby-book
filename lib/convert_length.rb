@@ -43,6 +43,28 @@ buy_burger('チーズバーガー', **parms)
 # シンボルの配列を%記法で作成
 print %i[apple orange banana]
 
+# nilであればnilを返す,ぼっち演算子
+c = nil
+puts c&.class
+
+# nilガード, nilの場合に値を代入
+c ||= 10
+c ||= 'この値は代入されない'
+# nilでなくなったら、出力される
+puts c&.class
+
+# !!を使って確実にtrue or falseを返す例
+def user_exists?(user)
+  !!user
+
+  # 以下のを書く必要がない
+  # if user
+  #   true
+  # else
+  #   false
+  # end
+end
+
 UNITS = { m: 1.0, ft: 3.28, in: 39.37 }.freeze
 def convert_length(length, from:, to:)
   (length / UNITS[from] * UNITS[to]).round(2)
