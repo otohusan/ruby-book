@@ -30,6 +30,19 @@ end
 # 使用例、デフォルト値があるから、引数を省略もできる
 buy_burger('ハンバーガー', drink: true, potato: true)
 
+# キーワード引数としてハッシュを変換して渡す
+# これは任意のキーワードを渡す時にも使われる
+parms = { drink: true, potato: true }
+buy_burger('チーズバーガー', **parms)
+
+# ハッシュにデフォルト値を与える
+# 参照を理解して使い分け
+# h = Hash.new('default')
+# h2 = Hash.new { 'default' }
+
+# シンボルの配列を%記法で作成
+print %i[apple orange banana]
+
 UNITS = { m: 1.0, ft: 3.28, in: 39.37 }.freeze
 def convert_length(length, from:, to:)
   (length / UNITS[from] * UNITS[to]).round(2)
