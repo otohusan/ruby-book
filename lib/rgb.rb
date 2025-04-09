@@ -29,9 +29,11 @@ def to_hex(r, g, b)
 end
 
 def to_ints(hex)
-  r = hex[1..2].hex
-  g = hex[3..4].hex
-  b = hex[5..6].hex
+  # シンプルに変数を定義して受け取る場合
+  # r = hex[1..2].hex
+  # g = hex[3..4].hex
+  # b = hex[5..6].hex
 
-  [r, g, b]
+  # 正規表現とmapを使った場合
+  hex.scan(/\w\w/).map(&:hex)
 end
