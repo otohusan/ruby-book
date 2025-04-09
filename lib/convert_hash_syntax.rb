@@ -4,8 +4,8 @@ text = <<TEXT
   Python is great language
   Java and Javascript is also a good language
 TEXT
-
-puts text.scan(/[A-Z][A-Za-z]+/)
+# マッチした部分を配列として取得
+p text.scan(/[A-Z][A-Za-z]+/)
 
 # 正規表現を使用した置換の例
 text = <<TEXT
@@ -13,8 +13,10 @@ text = <<TEXT
   僕の郵便番号は9876543です。
   兵庫県は1234567です。
 TEXT
-
 puts text.gsub(/(\d{3})(\d{4})/, '\1-\2')
+
+# テキストの正規表現がマッチする部分を取得する例
+p text[/(\d{3})(\d{4})/]
 
 # 正規表現をマッチさせるいくつかの例
 puts '123-456' =~ /(\d{3})-(\d{3})/ #=> マッチした位置を返す
