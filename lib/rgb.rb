@@ -30,6 +30,10 @@ puts "e: #{e}, f: #{f}"
 array = Array.new(10) { |i| i % 3 }
 puts array
 
+# eachやmapメソッドにブロックを渡さないと
+# Enumeratorクラスが呼び出されている
+puts array.each #=> #<Enumerator: 0..9:each>
+
 def to_hex(r, g, b)
   [r, g, b].sum('#') do |color|
     color.to_s(16).rjust(2, '0')
