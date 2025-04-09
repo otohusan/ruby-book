@@ -25,3 +25,14 @@ m = /(\d+)-(\d+)/.match('123-456と124-567')
 p m[0]
 p m[1]
 p m[2]
+
+# キャプチャに名前をつける
+mm = /(?<first>\d+)-(?<second>\d+)/.match('123-456と124-567')
+p mm[:first]
+p mm[:second]
+
+# ローカル変数にそのまま割り当てたりもできる
+if /(?<first>\d+)-(?<second>\d+)/ =~ '123-456と124-567'
+  puts "first: #{first}"
+  puts "second: #{second}"
+end
