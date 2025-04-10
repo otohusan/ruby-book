@@ -39,6 +39,13 @@ class User
   # class << self
   #   def ~
   # end
+
+  # ||=はメモ化のためにも使われる
+  def twitter_data
+    @twitter_data ||= begin
+      # TwitterAPIからデータを取得する処理
+    end
+  end
 end
 
 # インスタンスを作成してる例
