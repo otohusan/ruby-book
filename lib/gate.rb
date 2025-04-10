@@ -26,5 +26,14 @@ class User
   # end
 end
 
+# インスタンスを作成してる例
+user = User.new('Alice', 25)
+
+# インスタンスメソッドの使用
+user.hello
+
+# クラスメソッドの使用
+User.hello
+
 class Gate
 end
