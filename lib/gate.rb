@@ -41,6 +41,13 @@ class User
       # TwitterAPIからデータを取得する処理
     end
   end
+
+  # ダックタイピングの例
+  # active?はサブクラスで定義されることを前提にしている
+  # そのため、親クラスでは定義しない
+  def display_status
+    puts "Name: #{@name}, Age: #{@age}, Status: #{active?}"
+  end
 end
 
 # インスタンスを作成してる例
@@ -52,6 +59,10 @@ user.hello
 # クラスメソッドの使用
 User.hello
 
+# 親クラスで呼び出すとエラーになる（ダックタイピング）
+# user.display_status =>  `display_status': undefined method `is_status?' for #<User:0x000000010d2365c8 @name="Alice", @age=25>
+
+# 継承の例
 class ActiveUser < User
   # クラス変数の定義
   # 同じクラスなら、全て統一した値になる
@@ -77,6 +88,11 @@ class ActiveUser < User
 
   def self.hello
     p "Hello, I'm an active user!"
+  end
+
+  # ダックタイピングの例
+  def active?
+    true
   end
 
   # 外部に公開されないメソッドを定義
@@ -124,6 +140,10 @@ end
 
 # 特異メソッドの削除後、呼び出すとエラーになる
 # alice.hello #=> NoMethodError: undefined method `hello' for "Alice":String
+
+active_user = ActiveUser.new('Bob', 30, 'active')
+# サブクラスだと、active?が定義されてるから呼び出せる
+p active_user.display_status
 
 # 例題
 class Gate
