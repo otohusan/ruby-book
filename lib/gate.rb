@@ -1,5 +1,10 @@
 # クラスの作成例
 class User
+  # 定数の定義
+  # 定数はメソッド内では定義できず、トップでする必要ある
+  # クラスメソッド内でも、インスタンスメソッド内でも使用できる
+  DEFAULT_AGE = 20
+
   # 外部からアクセス可能な属性を定義するためのアクセサメソッドを使用
   # 読み取り、書き込みそれぞれの専用アクセサメソッドもある
   attr_accessor :name, :age
@@ -18,7 +23,17 @@ class User
 
   # クラスメソッドの定義
   def self.hello
-    p 'Hello, class method!'
+    p "Hello, class method! I'm #{DEFAULT_AGE} years old."
+  end
+
+  # クラスメソッドの定義
+  def self.~
+    puts 'Hello, class method!'
+  end
+
+  # インスタンスメソッドの定義
+  def ~
+    puts 'Hello, instance method!'
   end
   # 以下のような書き方もある
   # class << self
