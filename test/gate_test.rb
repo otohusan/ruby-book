@@ -11,4 +11,13 @@ class GateTest < Minitest::Test
     umeda.enter(ticket)
     assert juso.exit(ticket)
   end
+
+  def test_umeda_to_mikuni_fare_is_not_enough
+    umeda = Gate.new(:umeda)
+    mikuni = Gate.new(:mikuni)
+
+    ticket = Ticket.new(160)
+    umeda.enter(ticket)
+    assert !mikuni.exit(ticket)
+  end
 end
