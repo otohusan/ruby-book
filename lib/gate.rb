@@ -53,6 +53,10 @@ user.hello
 User.hello
 
 class ActiveUser < User
+  # クラス変数の定義
+  # 同じクラスなら、全て統一した値になる
+  @@count = 0
+
   def initialize(name, age, status)
     # 親クラスのinitializeメソッドを呼び出す
     super(name, age)
@@ -66,6 +70,21 @@ class ActiveUser < User
     super
     puts "I'm #{@status}."
   end
+
+  def self.hello
+    p "Hello, I'm an active user!"
+  end
+
+  # 外部に公開されないメソッドを定義
+  # サブクラスでは呼び出せる、オーバーライドできることに注意
+  private
+
+  def private_method
+    puts 'This is a private method.'
+  end
+
+  # クラスメソッドもprivateにできる
+  private_class_method :private_method
 end
 
 # 例題
