@@ -51,14 +51,25 @@ user.hello
 User.hello
 
 class Gate
+  STATIONS = %i[umeda juso mikuni].freeze
+  FARE = [160, 190].freeze
+
   def initialize(name)
     @name = name
   end
 
   def enter(ticket)
+    ticket.stamp(@name)
   end
 
   def exit(ticket)
-    true
+    ticket.price >= calc_fare(ticket)
+  end
+
+  def calc_fare(ticket)
+    from = STATIONS.index(ticket.stamped_at)
+    to = STATIONS.index(@name)
+
+    FARE[to - from - 1]
   end
 end
