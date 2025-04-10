@@ -26,11 +26,6 @@ class User
     p "Hello, class method! I'm #{DEFAULT_AGE} years old."
   end
 
-  # クラスメソッドの定義
-  def self.~
-    puts 'Hello, class method!'
-  end
-
   # インスタンスメソッドの定義
   def ~
     puts 'Hello, instance method!'
@@ -57,6 +52,23 @@ user.hello
 # クラスメソッドの使用
 User.hello
 
+class ActiveUser < User
+  def initialize(name, age, status)
+    # 親クラスのinitializeメソッドを呼び出す
+    super(name, age)
+    @status = status
+  end
+
+  def hello
+    # 親クラスのhelloメソッドを呼び出す
+    # 親で定義された、同じ名前のメソッドをsuperは呼び出す
+    # 親のメソッドと同じ名前のメソッドを定義し上書きすることを、オーバーライドという
+    super
+    puts "I'm #{@status}."
+  end
+end
+
+# 例題
 class Gate
   STATIONS = %i[umeda juso mikuni].freeze
   FARE = [160, 190].freeze
