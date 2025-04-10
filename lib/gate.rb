@@ -92,6 +92,7 @@ class ActiveUser < User
 end
 
 # 定義済みのクラスにメソッドを追加できる(オープンクラス)
+# 既存の実装を、自分の求める実装に変更することはモンキーパッチ
 class String
   def shuffle
     chars.shuffle.join
@@ -99,6 +100,30 @@ class String
 end
 
 p 'i am a string'.shuffle
+
+# 特異メソッドの例
+alice = 'Alice'
+bob = 'Bob'
+
+def alice.hello
+  puts 'Hello, Alice!'
+end
+
+def bob.hello
+  puts 'Hello, Bob!'
+end
+
+# 特異メソッドを定義したオブジェクトにだけ、特異メソッドが追加される
+alice.hello #=> Hello, Alice!
+bob.hello   #=> Hello, Bob!
+
+# 特異メソッドの削除
+class << alice
+  remove_method :hello
+end
+
+# 特異メソッドの削除後、呼び出すとエラーになる
+# alice.hello #=> NoMethodError: undefined method `hello' for "Alice":String
 
 # 例題
 class Gate
