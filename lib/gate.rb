@@ -57,6 +57,10 @@ class ActiveUser < User
   # 同じクラスなら、全て統一した値になる
   @@count = 0
 
+  # クラスインスタンス変数の定義
+  # インスタンス変数との勘違いに注意
+  @class_variable = 0
+
   def initialize(name, age, status)
     # 親クラスのinitializeメソッドを呼び出す
     super(name, age)
@@ -84,8 +88,17 @@ class ActiveUser < User
   end
 
   # クラスメソッドもprivateにできる
-  private_class_method :private_method
+  private_class_method :hello
 end
+
+# 定義済みのクラスにメソッドを追加できる(オープンクラス)
+class String
+  def shuffle
+    chars.shuffle.join
+  end
+end
+
+p 'i am a string'.shuffle
 
 # 例題
 class Gate
