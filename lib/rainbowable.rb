@@ -30,5 +30,17 @@ Person.hello #=> Hello from Greetable module!
 
 module Rainbowable
   def rainbow
+    str = to_s
+
+    count = 0
+    colored_char = []
+
+    str.each_char do |char|
+      color_code = 31 + count % 6
+      colored_char << "\e[#{color_code}m#{char}"
+      count += 1
+    end
+
+    "#{colored_char.join}\e[0m"
   end
 end
