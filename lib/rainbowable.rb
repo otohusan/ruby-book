@@ -17,8 +17,13 @@ class Person
   # moduleをincludeすることで、モジュールのメソッドをクラスに追加できる
   # (ミックスイン)
   include Greetable
+  # クラスメソッドとして定義する
+  extend Greetable # クラスメソッドを追加する
 end
 
 person = Person.new
 person.hello #=> Hello from Greetable module!
 # person.private_method => private_methodは呼び出せない
+
+# クラスメソッドとして呼び出す
+Person.hello #=> Hello from Greetable module!
