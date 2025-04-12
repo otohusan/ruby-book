@@ -27,3 +27,8 @@ person.hello #=> Hello from Greetable module!
 
 # クラスメソッドとして呼び出す
 Person.hello #=> Hello from Greetable module!
+
+module Rainbowable
+  def rainbow
+  end
+end
