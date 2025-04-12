@@ -1,5 +1,8 @@
 # moduleの定義例
 module Greetable
+  # moduleでもmoduleをincludeできる
+  include Loggable
+
   def hello
     puts 'Hello from Greetable module!'
   end
