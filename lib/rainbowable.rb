@@ -37,6 +37,27 @@ module Loggable
 
   # ミックスインとしても、特異メソッドとしても使えるようにする
   module_function :log
+
+  # refineは、特定のスコープでのみ有効なメソッドを定義するためのもの
+  # 特定のスコープでのみ、オープンクラスやモンキーパッチを適応する
+  refine String do
+    def shuffle
+      chars.shuffle.join
+    end
+  end
+end
+
+class User
+  using Loggable
+
+  def initialize(name)
+    @name = name
+  end
+
+  def shuffle
+    # refineされたメソッドを使う
+    @name.shuffle
+  end
 end
 
 person = Person.new
