@@ -50,5 +50,14 @@ end
 # 例外処理もテストを手を抜かない
 
 print 'Text?: '
-input = gets.chomp
-p input
+text = gets.chomp
+print 'Pattern?: '
+pattern = gets.chomp
+
+regex = Regexp.new(pattern)
+matches = text.scan(regex)
+if matches.empty?
+  puts 'No matches found.'
+else
+  p matches.join(', ')
+end
