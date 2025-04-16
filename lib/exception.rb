@@ -39,8 +39,8 @@ def currency_of(country)
   end
 end
 
-currency_of(:uk)
-currency_of(:italy) # => 例外が起きる
+# currency_of(:uk) => dollar
+# currency_of(:italy) => 例外が起きる
 
 # 例外処理のtips
 # 無闇にrescueせずに、即座に以上終了か、フレームワークの共通処理に頼るのがベター
@@ -48,3 +48,7 @@ currency_of(:italy) # => 例外が起きる
 # 例外処理の対象範囲と対象クラスを絞り込む
 # 例外処理よりも、条件分岐を使う　-> ドキュメントなどでメソッドを確認、可読性とパフォーマンスでも優れてる
 # 例外処理もテストを手を抜かない
+
+print 'Text?: '
+input = gets.chomp
+p input
