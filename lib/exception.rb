@@ -25,3 +25,19 @@ rescue StandardError => e
     puts '3回リトライしても失敗しました'
   end
 end
+
+# 意図的に例外を発生させる処理
+def currency_of(country)
+  case country
+  when :japan
+    'yen'
+  when :us
+    'dollar'
+  else
+    # 例外クラスとメッセージを指定できる
+    raise ArgumentError, "Unknown country: #{country}"
+  end
+end
+
+currency_of(:uk)
+currency_of(:italy) # => 例外が起きる
