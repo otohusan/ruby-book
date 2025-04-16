@@ -51,10 +51,17 @@ end
 
 print 'Text?: '
 text = gets.chomp
-print 'Pattern?: '
-pattern = gets.chomp
 
-regex = Regexp.new(pattern)
+# 不適切な入力だと再入力させる
+begin
+  print 'Pattern?: '
+  pattern = gets.chomp
+  regex = Regexp.new(pattern)
+rescue RegexpError => e
+  puts "Invalid pattern: #{e.message}"
+  retry
+end
+
 matches = text.scan(regex)
 if matches.empty?
   puts 'No matches found.'
