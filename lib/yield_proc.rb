@@ -1,7 +1,14 @@
 def greet
   puts 'おはよう'
-  # ブロックを渡すと、ここで発動する
-  yield
+
+  # yieldはブロックを渡さないとエラーになるから、これで確認
+  if bock_given?
+    # ブロックを渡すと、ここで発動する
+    yield
+    # yieldは複数回使える
+    yield
+  end
+
   puts 'こんばんは'
 end
 
