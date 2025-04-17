@@ -32,3 +32,10 @@ end
 greet2 do |msg|
   puts msg * 2
 end
+
+# Procオブジェクトを作る
+hello_proc = proc do
+  puts 'hello'
+end
+
+hello_proc.call
