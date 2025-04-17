@@ -37,5 +37,7 @@ end
 hello_proc = proc do
   puts 'hello'
 end
+# 以下みたいにも定義できる
+# Proc.new {|msg| msg}
 
 hello_proc.call
