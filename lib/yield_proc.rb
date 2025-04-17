@@ -2,7 +2,7 @@ def greet
   puts 'おはよう'
 
   # yieldはブロックを渡さないとエラーになるから、これで確認
-  if bock_given?
+  if block_given?
     # ブロックを渡すと、ここで発動する
     yield
     # yieldは複数回使える
@@ -22,6 +22,9 @@ def greet2(&block)
 
   # nil?でブロックが渡されているか確認
   puts block.call('こんにちは') unless block.nil?
+
+  # ブロックパラメータの数を得られる
+  puts block.arity
 
   puts 'こんばんは'
 end
