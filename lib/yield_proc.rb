@@ -39,5 +39,11 @@ hello_proc = proc do
 end
 # 以下みたいにも定義できる
 # Proc.new {|msg| msg}
-
 hello_proc.call
+
+# procオブジェクトを、普通の引数として受け取る
+# ブロックは1つしか渡せないが、Procオブジェクトは複数渡せる
+def greet3(arrange_proc)
+  arrange_proc.call
+  puts 'こんばんは'
+end
