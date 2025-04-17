@@ -20,7 +20,8 @@ end
 def greet2(&block)
   puts 'おはよう'
 
-  puts block.call('こんにちは')
+  # nil?でブロックが渡されているか確認
+  puts block.call('こんにちは') unless block.nil?
 
   puts 'こんばんは'
 end
