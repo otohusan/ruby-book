@@ -11,4 +11,10 @@ module Effects
       word.each_char.map { |char| char == ' ' ? ' ' : char * rate }.join
     end
   end
+
+  def self.loud(rate = 1)
+    lambda do |word|
+      word.upcase.split(' ').map { |char| char + '!' * rate }.join(' ')
+    end
+  end
 end
