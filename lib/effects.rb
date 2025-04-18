@@ -1,7 +1,8 @@
+# Effect
 module Effects
   def self.reverse
     lambda do |word|
-      word.split(' ').reverse.join
+      word.split(' ').map(&:reverse).join(' ')
     end
   end
 end

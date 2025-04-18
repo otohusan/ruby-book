@@ -42,6 +42,7 @@ end
 
 # ラムダ, Proc.newと異なり、メソッドと同じように引数の過不足があるとエラーになる
 # -> (a, b) {a + b}
+# lamda {|a, b| a + b}
 hello_proc.call
 
 # procオブジェクトを、普通の引数として受け取る
