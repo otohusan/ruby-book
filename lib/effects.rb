@@ -14,7 +14,12 @@ module Effects
 
   def self.loud(rate = 1)
     lambda do |word|
-      word.upcase.split(' ').map { |char| char + '!' * rate }.join(' ')
+      # メソッドチェーンは改行もできる
+      word.upcase
+          # ここにコメントもできる
+          .split(' ')
+          .map { |char| char + '!' * rate }
+          .join(' ')
     end
   end
 end
