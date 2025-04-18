@@ -39,6 +39,9 @@ hello_proc = proc do
 end
 # 以下みたいにも定義できる
 # Proc.new {|msg| msg}
+
+# ラムダ, Proc.newと異なり、メソッドと同じように引数の過不足があるとエラーになる
+# -> (a, b) {a + b}
 hello_proc.call
 
 # procオブジェクトを、普通の引数として受け取る
