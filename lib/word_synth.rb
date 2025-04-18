@@ -15,5 +15,10 @@ class WordSynth
     end
 
     original_word
+
+    # リファクタリング例
+    # @effects.reduce(word) do |current_word, effect|
+    #   effect.call(current_word)
+    # end
   end
 end
