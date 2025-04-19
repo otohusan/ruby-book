@@ -4,9 +4,19 @@ require 'date'
 # 1. 配列やハッシュの構造をもとに場合分けできる
 # 2. = を使わずに変数に代入できる
 
-records = [[2001], [2002, 5], [2004, 6, 14]]
+# 基本のパターンマッチ例(value)
+country = 'Japan'
+case country
+in 'Japan'
+  puts '日本'
+in 'US'
+  puts 'アメリカ'
+in 'UK'
+  puts 'イギリス'
+end
 
 # 基本のパターンマッチ例(array)
+records = [[2001], [2002, 5], [2004, 6, 14]]
 records.each do |record|
   case record
   in [year]
