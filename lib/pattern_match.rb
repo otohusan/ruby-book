@@ -73,3 +73,10 @@ cars.each do |car|
     puts '不明な形式'
   end
 end
+
+# 基本のパターンマッチ例(as)
+case { name: 'Alice', age: 20 }
+# マッチしたハッシュを変数に代入
+in {name: String, age: 18...} => person
+  p person
+end
