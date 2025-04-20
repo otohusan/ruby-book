@@ -13,6 +13,19 @@ in 'US'
   puts 'アメリカ'
 in 'UK'
   puts 'イギリス'
+
+  # else -> 例外を防ぎたい場合は追加する
+end
+
+# 基本のパターンマッチ例(variable)
+alice = 'Alice'
+case 'Alice'
+# 変数に代入する
+in obj
+  p "#{obj}"
+
+# ^は変数の値を参照する
+in ^alice
 end
 
 # 基本のパターンマッチ例(array)
