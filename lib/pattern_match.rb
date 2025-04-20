@@ -47,7 +47,7 @@ end
 case ['Alice', 999, 3]
   # クラス名や、範囲オブジェクトも指定できる、_は任意の要素,*は任意の長さの要素
 in [String, 10..., _]
-  p n
+  
 end
 
 # 基本のパターンマッチ例(hash)
@@ -80,4 +80,13 @@ case { name: 'Alice', age: 20 }
 # 二つ以上のパターンは | で区切る
 in {name: String | Integer, age: 18...} => person
   p person
+end
+
+# 基本のパターンマッチ例(find)
+# *を２個使って、前と後ろにある任意の要素を指定
+case [2, 3, 4, 6, 12, 2, 15, 16, 17, 0, 9]
+in [*, 10.. => a, 10.. => b, 10.. => c, * ]
+  p a
+  p b
+  p c
 end
