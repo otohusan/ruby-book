@@ -77,6 +77,7 @@ end
 # 基本のパターンマッチ例(as)
 case { name: 'Alice', age: 20 }
 # マッチしたハッシュを変数に代入
-in {name: String, age: 18...} => person
+# 二つ以上のパターンは | で区切る
+in {name: String | Integer, age: 18...} => person
   p person
 end
