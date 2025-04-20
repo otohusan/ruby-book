@@ -3,6 +3,7 @@ require 'date'
 # パターンマッチの特徴
 # 1. 配列やハッシュの構造をもとに場合分けできる
 # 2. = を使わずに変数に代入できる
+# 3. 各要素のマッチ判定には====が使われる
 
 # 基本のパターンマッチ例(value)
 country = 'Japan'
@@ -60,6 +61,14 @@ cars.each do |car|
     puts "#{name}のエンジンは#{engine}"
   in { name: name, motor: motor }
     puts "#{name}のモーターは#{motor}"
+
+  # **nilは他のキーと値がないことを指定
+  in { name: name, **nil }
+    p name
+
+  # ** は任意のキーと値を指定
+  in { name: name, **_ }
+    p name
   else
     puts '不明な形式'
   end
