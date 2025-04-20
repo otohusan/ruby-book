@@ -43,6 +43,12 @@ records.each do |record|
   end
 end
 
+case ['Alice', 999, 3]
+  # クラス名や、範囲オブジェクトも指定できる、_は任意の要素,*は任意の長さの要素
+in [String, 10..., _]
+  p n
+end
+
 # 基本のパターンマッチ例(hash)
 cars = [{ name: 'Prius', engine: '98ps' },
         { name: 'Leaf', engine: '0ps', motor: '150ps' },
