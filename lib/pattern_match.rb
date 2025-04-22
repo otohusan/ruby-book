@@ -93,13 +93,23 @@ end
 
 # ガード式の例
 data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-case data
-# in節のパターンにマッチするに加えて、条件式も追加（ガード式）
-# in節で定義した変数へのアクセスも可能
-in [a, b, c] if b == a + 1 && c == a + 2
-  p a
-  p b
-  p c
-else
-  puts '不明な形式'
+data.each do |record|
+  case record
+  # in節のパターンにマッチするに加えて、条件式も追加（ガード式）
+  # in節で定義した変数へのアクセスも可能
+  in [a, b, c] if b == a + 1 && c == a + 2
+    puts "#{a}, #{b}, #{c}は連続した整数"
+  else
+    puts '不明な形式'
+  end
 end
+
+# 1行パターンマッチ
+[1, 2, 3] in [Integer, Integer, Integer] # => true
+
+ans =  cars.select do |car|
+  # マッチした変数は使わないから、_を使う
+  car in {name: _ , motor: _}
+end
+
+p ans
