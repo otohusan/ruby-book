@@ -10,7 +10,13 @@ module LogFormatter
     json = Net::HTTP.get(uri)
 
     # symbolize_names: trueは keyをシンボルにしてる
-    log = JSON.parse(json, symbolize_names: true)
-    pp log
+    log_data = JSON.parse(json, symbolize_names: true)
+
+    log_data.map do |log|
+      case log
+      in { request_id:, path:}
+        "[OK] request_id=#{request_id}, path=#{path}"
+      end
+    end.join("\n")
   end
 end
