@@ -13,16 +13,17 @@ module LogFormatter
     log_data = JSON.parse(json, symbolize_names: true)
 
     log_data.map do |log|
-      p log
       case log
-      in { request_id:, path:, status: 200, duration: ..1000 }
-        "[OK] request_id=#{request_id}, path=#{path}"
+        # alternativeパターン、asパターンを使ってる
       in { request_id:, path:, error:, status: 404 | 500 => status}
         "[ERROR] request_id=#{request_id}, path=#{path}, status=#{status}, error=#{error}"
+
       in {request_id:, path:, duration: 1000... => duration, }
         "[WARN] request_id=#{request_id}, path=#{path}, duration=#{duration}"
-      else
-        ''
+
+      in { request_id:, path:, }
+        "[OK] request_id=#{request_id}, path=#{path}"
+
       end
     end.join("\n")
   end
