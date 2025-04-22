@@ -3,6 +3,6 @@ require_relative '../lib/log_formatter'
 
 class LogFormatterTest < Minitest::Test
   def test_format_log
-    assert LogFormatter.format('Hello')
+    assert LogFormatter.format_log
   end
 end
