@@ -15,10 +15,12 @@ module LogFormatter
     log_data.map do |log|
       p log
       case log
-      in { request_id:, path:, status: 200 }
+      in { request_id:, path:, status: 200, duration: ..1000 }
         "[OK] request_id=#{request_id}, path=#{path}"
       in { request_id:, path:, error:, status: 404 => status}
         "[ERROR] request_id=#{request_id}, path=#{path}, status=#{status}, error=#{error}"
+      in {request_id:, path:, duration: 1000... => duration, }
+        "[WARN] request_id=#{request_id}, path=#{path}, duration=#{duration}"
       else
         ''
       end
